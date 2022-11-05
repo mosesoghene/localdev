@@ -8,4 +8,4 @@
 
 
 
-Author: @mosesoghene[https://github.com/mosesoghene]
+Author: [@github/mosesoghene](https://github.com/mosesoghene)
