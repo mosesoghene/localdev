@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{{ ckeditor.load() }}
+
+{% block title %} Create post {% endblock %}
+
+{% block content %}
+
+    <h1>
+        Edit post
+    </h1>
+
+    <form method="post" class="signup">
+        <div>
+            <input type="text" id="title" name="title" value="{{title}}">
+        </div>
+        <div>
+            <textarea data-editor="markdown" name="body" id="body" cols="30" rows="10">{{ body }}</textarea>
+        </div>
+
+        <div>
+            <button type="submit">Save edit</button>
+        </div>
+    </form>
+
+    
+{% endblock %}

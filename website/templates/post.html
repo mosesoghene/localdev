@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Tolka | {{post.title}}{% endblock %}
+
+{% block content %}
+    <h1>
+        {{post.title}}
+    </h1>
+
+    <div>
+            <div>
+                <h3>{{ post.title }} | <small>@{{ post.post_user.username }}</small></h3>
+                <p>{{ post.body }}</p>
+                {% if user.is_authenticated %}
+                    {% if user.id == post.user_id %}
+                        <a href="/edit/{{post.id}}">Edit Post</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Create post {% endblock %}
+
+{% block content %}
+    <h1>
+        Create new post
+    </h1>
+
+    <form method="post" class="signup">
+        <div>
+            <input type="text" id="title" name="title" placeholder="Post Title">
+        </div>
+        <div>
+            <textarea data-editor="markdown" name="body" id="body" placeholder="Tolka: Hey, what do you wanna tolka-bout 🙂 💬" cols="30" rows="10"></textarea>
+        </div>
+
+        <div>
+            <button type="submit">Publish Post</button>
+        </div>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+.container{
+    padding: 20px 50px;
+}
+
+.signup div{
+    margin: 10px auto;
+}
+
+.signup {
+    margin: 0 auto;
+}
+
+.error {
+    color: brown;
+}
