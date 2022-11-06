@@ -1,4 +1,140 @@
 <!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Tolka | {% block title %} {% endblock %}</title>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Creative Agency Bootstrap Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Airspace Template v1.0">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.png" />
+
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="static/plugins/bootstrap/bootstrap.min.css">
+  <!-- Ionic Icon Css -->
+  <link rel="stylesheet" href="static/plugins/Ionicons/css/ionicons.min.css">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="static/plugins/animate-css/animate.css">
+  <!-- Magnify Popup -->
+  <link rel="stylesheet" href="static/plugins/magnific-popup/magnific-popup.css">
+  <!-- Slick CSS -->
+  <link rel="stylesheet" href="static/plugins/slick/slick.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+<body id="body">
+
+<!-- Header Start -->
+<header class="navigation">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<nav class="navbar navbar-expand-lg p-0">
+					<a class="navbar-brand" href="/">
+						<img src="static/images/logo.png" alt="Logo">
+					</a>
+
+					<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="ion-android-menu"></span>
+					</button>
+
+					<div class="collapse navbar-collapse ml-auto" id="navbarsExample09">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item @@home">
+								<a class="nav-link" href="/">Home</a>
+							</li>
+							
+							<li class="nav-item @@service"><a class="nav-link" href="/about">About</a></li>
+							
+							
+							<li class="nav-item @@contact"><a class="nav-link" href="/contact">Contact</a></li>
+
+                            {% if user.is_authenticated %}
+							    <li class="nav-item @@contact"><a class="nav-link" href="/create">Create Post</a></li>
+
+							    <li class="nav-item @@contact"><a class="nav-link" href="/logout">Logout</a></li>
+                            {% else %}
+							    <li class="nav-item @@contact"><a class="nav-link" href="/signup">Sign Up</a></li>
+							    <li class="nav-item @@contact"><a class="nav-link" href="/login">Login</a></li>
+                            {% endif %}
+                        </ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header><!-- header close -->
+
+
+
+{% block content %} {% endblock %}
+
+
+
+<!-- footer Start -->
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="footer-manu">
+					<ul>
+						<li><a href="/about">About Us</a></li>
+						<li><a href="/contact">Contact us</a></li>
+					</ul>
+				</div>
+				<p class="copyright mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; Designed & Developed by <a
+						href="/">LocalDev</a>. All rights reserved.
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!--Scroll to top-->
+<div id="scroll-to-top" class="scroll-to-top">
+	<span class="icon ion-ios-arrow-up"></span>
+</div>
+
+    <!-- 
+    Essential Scripts
+    =====================================-->
+
+
+    <!-- Main jQuery -->
+    <script src="static/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="static/plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- slick Carousel -->
+    <script src="static/plugins/slick/slick.min.js"></script>
+    <script src="static/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- filter -->
+    <script src="static/plugins/shuffle/shuffle.min.js"></script>
+    <script src="static/plugins/SyoTimer/jquery.syotimer.min.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+    <script src="static/plugins/google-map/map.js"></script>
+
+    <script src="static/js/script.js"></script>
+
+    </body>
+
+    </html>
+
+{# 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +145,7 @@
     <link rel="stylesheet" href="static/main.css">
 </head>
 <body>
+
     <nav>
         <ul>
             {% if user.is_authenticated %}
@@ -39,7 +176,9 @@
     {% endwith %}
 
     <div class="container">
-        {% block content %} {% endblock %}
+        
     </div>
 </body>
 </html>
+
+ #}

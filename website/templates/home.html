@@ -3,6 +3,59 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
+
+
+<div class="page-wrapper">
+	<div class="container">
+		<div class="row">
+            {% for post in posts %}
+                <div class="col-md-6">
+                    <div class="post">
+                        <div class="post-thumb">
+                            <a href="/post/{{post.id}}">
+                                <img class="img-fluid" src="static/images/blog/blog-post-1.jpg" alt="">
+                            </a>
+                        </div>
+                        <h3 class="post-title"><a href="/post/{{post.id}}">{{ post.title }}</a></h3>
+                        <div class="post-meta">
+                            <ul>
+                                <li>
+                                    <i class="ion-calendar"></i> {{ post.date }}
+                                </li>
+                                <li>
+                                    <i class="ion-android-people"></i> Article By {{ post.post_user.username }}
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="post-content">
+                            <p>
+                                {{ post.body|safe|truncate(200) }}
+                            </p>
+                            <a href="/post/{{post.id}}" class="btn btn-main">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+		</div>
+
+
+	<!-- FOR PAGINATION
+		<nav aria-label="Page navigation example">
+			<ul class="pagination post-pagination justify-content-center">
+				<li class="page-item"><a class="page-link" href="blog-grid.html">Prev</a></li>
+				<li class="page-item"><a class="page-link" href="blog-grid.html">1</a></li>
+				<li class="page-item"><a class="page-link" href="blog-grid.html">2</a></li>
+				<li class="page-item"><a class="page-link" href="blog-grid.html">3</a></li>
+				<li class="page-item"><a class="page-link" href="blog-grid.html">Next</a></li>
+			</ul>
+		</nav> 
+	-->
+	</div>
+</div>
+
+
+{#
     <h1>
         Tolka Posts
     </h1>
@@ -10,10 +63,12 @@
     <div>
         {% for post in posts %}
             <div>
-                <h3><a href="/post/{{post.id}}">{{ post.title }}</a> | <small>@{{ post.post_user.username }}</small></h3>
+                <h3><a href="/post/{{post.id}}"></a> | <small></small></h3>
                 <p>{{ post.body|safe|truncate(50) }}</p>                
             </div>
             <hr>
         {% endfor %}
     </div>
+
+#}
 {% endblock %}
