@@ -1,27 +1,49 @@
 {% extends 'base.html' %}
 
-{{ ckeditor.load() }}
 
-{% block title %} Create post {% endblock %}
+{% block title %} Edit post {% endblock %}
 
 {% block content %}
 
-    <h1>
-        Edit post
-    </h1>
-
-    <form method="post" class="signup">
-        <div>
-            <input type="text" id="title" name="title" value="{{title}}">
+    <section class="page-title bg-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="block">
+                <h1>Edit Post | {{title}}</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, quibusdam.</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-            <textarea data-editor="markdown" name="body" id="body" cols="30" rows="10">{{ body }}</textarea>
+      </section>
+      <!-- contact form start -->
+      <section class="contact-form">
+        <div class="container">
+          <form class="row" id="contact-form" method="post">
+            <div class="col-md-12 col-sm-12">
+              <div class="block">
+                <div class="form-group">
+                  <input name="title" type="text" class="form-control" value="{{title}}" placeholder="Enter title">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+              <div class="block">
+                <div class="form-group-2">
+                  <textarea 
+                    name="body" 
+                    class="form-control" 
+                    rows="4"
+                    placeholder="Tolka: Hey, what do you wanna tolka-bout 🙂 💬">{{body}}</textarea>
+                </div>
+                <button class="btn btn-default" type="submit">Save Edit</button>
+              </div>
+            </div>
+            <div class="error" id="error">Sorry Msg dose not sent</div>
+            <div class="success" id="success">Message Sent</div>
+          </form>
         </div>
+      </section>
 
-        <div>
-            <button type="submit">Save edit</button>
-        </div>
-    </form>
-
-    
 {% endblock %}
