@@ -19,3 +19,8 @@ def view_post(id):
 @views.route('/about')
 def about():
     return render_template('about.html', user=current_user)
+
+
+@views.route('/contact')
+def contact():
+    return render_template('contact.html', user=current_user)
