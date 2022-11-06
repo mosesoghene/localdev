@@ -104,24 +104,31 @@ def create_post():
 @auth.route('/edit/<int:id>', methods=["GET", "POST"])
 @login_required
 def edit(id):
-    post = Post.query.filter_by(id=id).first()
-    title = post.title
-    body = post.body
-    if request.method == "POST":
-        new_title = request.form.get('title')
-        new_body = request.form.get('body')
-
-        if len(new_title) < 4:
-            flash("Tite too Short!!!", category='error')
-        elif len(new_body) < 10:
-            flash("Post content too short!!!", category='error')
-        else:
-            new_post = Post(title=new_title, body=new_body, user_id=current_user.id)
-            db.session.add(new_post)
-            db.session.commit()
-            flash("Post Updated!", category='success')
-            
-            return redirect(url_for('views.home'))
     
-    return render_template('edit.html', user=current_user, title=title, body=body)
+    post = Post.query.filter_by(id=id).first()
+    if current_user.id == post.post_user.id:
+        title = post.title
+        body = post.body
+        if request.method == "POST":
+            new_title = request.form.get('title')
+            new_body = request.form.get('body')
+
+            if len(new_title) < 4:
+                flash("Tite too Short!!!", category='error')
+            elif len(new_body) < 10:
+                flash("Post content too short!!!", category='error')
+            else:
+                
+                post.title = new_title
+                post.body = new_body
+                db.session.add(post)
+                db.session.commit()
+                flash("Post Updated!", category='success')
+                
+                return redirect(url_for('views.home'))
+    
+        return render_template('edit.html', user=current_user, title=title, body=body)
+    else:
+        flash('You do not have access to edit this post! Are you the creator?')
+        return redirect(url_for('views.home'))
 
