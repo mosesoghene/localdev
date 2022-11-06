@@ -129,6 +129,6 @@ def edit(id):
     
         return render_template('edit.html', user=current_user, title=title, body=body)
     else:
-        flash('You do not have access to edit this post! Are you the creator?')
+        flash('You do not have access to edit this post! Are you the creator?', category='error')
         return redirect(url_for('views.home'))
 
