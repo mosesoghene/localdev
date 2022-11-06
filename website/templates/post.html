@@ -41,7 +41,11 @@
                             {{post.body}}
                         </p>
 					</div>
-                    
+                    {% if user.is_authenticated %}
+                        {% if user.id == post.user_id %}
+                            <a href="/edit/{{post.id}}">Edit Post</a>
+                        {% endif %}
+                    {% endif %}
 					<div class="post-comments">
                         <h4 style="color: red">To be implemented</h4>
 						<h3 class="post-sub-heading">10 Comments</h3>
