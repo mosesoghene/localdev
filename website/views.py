@@ -14,3 +14,8 @@ def home():
 def view_post(id):
     post = Post.query.filter_by(id=id).first()
     return render_template('post.html', post=post, user=current_user)
+
+
+@views.route('/about')
+def about():
+    return render_template('about.html', user=current_user)
